@@ -1,20 +1,29 @@
 #include<iostream>
 using namespace std;
+class Solution{
+    public:
+    int set(int n,int i,int size){
+        int test=size-i-1;
+        int check=n>>test;
+    }
+};
 int main(){
-    int n,i;
-    cout<<"enter the number and position: ";
+    Solution sol;
+    int n, i;
+    cout<<"enter the number and position : ";
     cin>>n>>i;
     int size=0;
-    while(n){
+    int temp=n;
+    while(temp){
         size++;
-        n=n>>1;
+        temp=temp>>1;
     }
-    int set=size-i-1;
-    if(set&1){
-        cout<<"true";
+    int check=sol.set(n,i,size);
+    if(check&1){
+        cout<<"Set Bit";
     }
     else{
-        cout<<"false";
+        cout<<"Not Set Bit";
     }
     return 0;
 }
