@@ -17,7 +17,7 @@ class Solution{
 int main(){
     Solution sol;
     int n;
-    cout<<"Enter a number: ";
+    cout<<"Enter a number: "<<endl;
     cin>>n;
     int result=sol.countSetBits(n);
     cout<<result<<endl;

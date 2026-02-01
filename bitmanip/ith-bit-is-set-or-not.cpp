@@ -10,7 +10,7 @@ class Solution{
 int main(){
     Solution sol;
     int n, i;
-    cout<<"enter the number and position : ";
+    cout<<"enter the number and position : "<<endl;
     cin>>n>>i;
     int size=0;
     int temp=n;

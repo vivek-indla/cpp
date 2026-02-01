@@ -16,7 +16,7 @@ class Solution{
 int main(){
     Solution sol;
     int n;
-    cout<<"enter a number: ";
+    cout<<"enter a number: "<<endl;
     cin>>n;
     bool check=sol.isPowerOfTwo(n);
     if(check){
