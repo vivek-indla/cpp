@@ -1,7 +1,9 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int n=15,i=2;
+    int n,i;
+    cout<<"enter the number and position: ";
+    cin>>n>>i;
     int size=0;
     while(n){
         size++;
