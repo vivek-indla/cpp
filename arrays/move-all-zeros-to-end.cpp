@@ -12,7 +12,7 @@ class Solution{
                     start++;
                     if(nums[start]!=0){
                         int swap=nums[start];
-                        nums[start]=nums[streak];
+                        nums[start]=nums[streak]; 
                         nums[streak]=swap;
                         streak++;
                     }
