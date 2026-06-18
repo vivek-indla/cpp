@@ -1,30 +1,27 @@
-// In this program we are going to remove duplicates of the sorted order numbers 
-// using two pointers 
-
-#include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 using namespace std;
 
 class Solution{
     public:
-    int remove_duplicates(vector<int> &nums){
-        int i=0;
-        for(int j=1;j<nums.size();j++){
-            if(nums[i]!=nums[j]){
-                i++;
-                nums[i]=nums[j];
+    int removeDuplicates(vector<int> &nums){
+        if(nums.size()<=1){
+            return nums.size();
+        }
+        int idx=1;
+        for(int i=1;i<nums.size();i++){
+            if(nums[idx]!=nums[i-1]){
+                nums[idx++]=nums[i];
+                idx++;
             }
         }
-        return i+1;
+        return idx;
     }
 };
-
 int main(){
     Solution s1;
-    vector<int> nums={0,0,0,1,1,2,2,2,3,3};
-    int k = s1.remove_duplicates(nums);
-    cout<<"count of unique numbers: "<<k<<endl;
-    cout<<"Array after removing duplicates: ";
-    for(int i=0;i<k;i++){
+    vector<int> nums={1,2,2,3,3, 4, 4, 4, 5, 5};
+    int newSize=s1.removeDuplicates(nums);
+    for(int i=0;i<newSize;i++){
         cout<<nums[i]<<" ";
     }
     return 0;
