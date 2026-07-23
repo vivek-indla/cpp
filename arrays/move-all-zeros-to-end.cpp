@@ -24,7 +24,7 @@ class Solution{
     }
 };
 int main(){
-    Solution s1;
+    Solution s1;    
     vector<int> nums={1 ,0 ,2 ,3 ,0 ,4 ,0 ,1};
     s1.moveZerosToEnd(nums);
     return 0;

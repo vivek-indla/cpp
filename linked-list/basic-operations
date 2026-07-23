@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node *next;
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+Node* convert(vector<int> &nums){
+    Node* head=new Node(nums[0]);
+    Node* move=head;
+    for(int i=1;i<nums.size();i++){
+        Node* temp=new Node(nums[i]);
+        move->next=temp;
+        move=temp;
+    }
+    return head;
+}
+void traverse(Node* head){
+    Node* temp=head;
+    while(temp!=nullptr){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    
+}
+int ll_length(Node* head){
+    int count=0;
+    Node* temp=head;
+    while(temp){
+        count++;
+        temp=temp->next;
+    }
+    return count;
+}
+int search(Node* head,int value){
+    Node* temp=head;
+    while(temp){
+        if(temp->data == value)
+            return 1;
+        temp=temp->next;
+    }
+    return 0;
+}
+int main(){
+    vector<int> nums={3,2,5,9,4};
+    Node* head=convert(nums);
+    // traverse(head);
+    // int length=ll_length(head);
+    // cout<<length<<endl;
+    int value=4;
+    int found=search(head,value);
+    cout<<found<<endl;
+    return 0;
+}
