@@ -61,6 +61,7 @@ Node* InsertAtK(Node* head,int k,int value){
         Node* temp=new Node(value,head);
         return temp;
     }
+    Node* newNode=new Node(value);
     Node* temp=head;
     int count=0;
     while(temp){
