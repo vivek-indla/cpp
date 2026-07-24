@@ -49,7 +49,6 @@ Node* InsertTail(Node* head,int value){
     return head;
 }
 Node* InsertAtK(Node* head,int k,int value){
-    Node* newNode=new Node(value);
     if(head==NULL){
         if(k==1){
             return new Node(value);
