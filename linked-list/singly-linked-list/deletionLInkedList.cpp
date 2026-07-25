@@ -29,8 +29,8 @@ void traverse(Node* head){
     
 }
 Node* Deletehead(Node* head){
-    if(head==NULL){
-        return head;
+    if(head==NULL || head->next==NULL){
+        return NULL;
     }
     Node* temp=head;
     head=head->next;
