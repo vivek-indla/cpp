@@ -7,7 +7,7 @@ class Solution{
     int left=0,right=0,maxlen=0,sum=0;
     while(right<=n){   
         sum+=nums[right];
-        while(sum > k){
+        if(sum > k){
             sum-=nums[left];
             left++;
         }
