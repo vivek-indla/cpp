@@ -24,39 +24,49 @@ void print(ListNode* head){
         temp=temp->next;
     }
 }
-ListNode* findInsertion(ListNode* head1,ListNode* head2){
-    int l1=0,l2=0;
-    ListNode* temp=head1;
-    while(temp){
-        l1++;
-        temp=temp->next;
-    }
-    temp=head2;
-    while(temp){
-        l2++;
-        temp=temp->next;
-    }
-    int diff=abs(l1-l2);
-    if(l1>l2){
-        while(diff--){
-            head1=head1->next;
-        }
-    }
-    else{
-        while(diff--){
-            head2=head2->next;
-        }
-    }
+//below is optimal 1 approach
+// ListNode* findIntersection(ListNode* head1,ListNode* head2){
+//     int l1=0,l2=0;
+//     ListNode* temp=head1;
+//     while(temp){
+//         l1++;
+//         temp=temp->next;
+//     }
+//     temp=head2;
+//     while(temp){
+//         l2++;
+//         temp=temp->next;
+//     }
+//     int diff=abs(l1-l2);
+//     if(l1>l2){
+//         while(diff--){
+//             head1=head1->next;
+//         }
+//     }
+//     else{
+//         while(diff--){
+//             head2=head2->next;
+//         }
+//     }
+//     ListNode* temp1=head1;
+//     ListNode* temp2=head2;
+//     while(temp1){
+//         if(temp1==temp2){
+//             return temp1;
+//         }
+//         temp1=temp1->next;
+//         temp2=temp2->next;
+// }
+//     return NULL;
+// }
+ListNode* findIntersection(ListNode* head1,ListNode* head2){
     ListNode* temp1=head1;
     ListNode* temp2=head2;
-    while(temp1){
-        if(temp1==temp2){
-            return temp1;
-        }
-        temp1=temp1->next;
-        temp2=temp2->next;
-}
-    return NULL;
+    while(temp1 != temp2){
+        temp1= temp1==NULL ? head2 : temp1->next;
+        temp2= temp2==NULL ? head1 : temp2->next;
+    }
+    return temp1;
 }
 int main(){
     vector<int> nums={4,5,1,9,2,3};
@@ -65,7 +75,7 @@ int main(){
     vector<int> nums2={1,7};
     ListNode* head2=convert(nums2);
     head2->next->next=head->next->next->next;
-    head=findInsertion(head1,head2);
+    head=findIntersection(head1,head2);
     if(head)
         cout<<"true";
     else
