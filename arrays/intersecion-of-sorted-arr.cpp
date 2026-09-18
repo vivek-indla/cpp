@@ -2,35 +2,51 @@
 using namespace std;
 class Solution{
     public:
-    vector<int> intersectionOfSorted(vector<int>& nums1,vector<int>& nums2,int n,int m){
+    vector<int> Intersection(vector<int>& nums1,vector<int>& nums2){
+        // time : O(n log n) for sorting arrays space:O(!)
+        if arrays are not sorted
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        vector<int> intersect;
+        int n=nums1.size();
+        int m=nums2.size();
         int i=0,j=0;
-        vector<int> intersection;
         while(i<n && j<m){
-            if(nums1[i]<nums2[j]){
+            if(nums1[i]==nums2[j]){
+                if(intersect.empty() || intersect.back()!=nums1[i]){
+                    intersect.push_back(nums1[i]);
+                }
                 i++;
-            }
-            else if(nums1[i]>nums2[j]){
                 j++;
             }
-            else{
-                // if(intersection.empty() || intersection.back()!=nums1[i]){
-                    intersection.push_back(nums1[i]);
-                // }
+            else if(nums1[i]<nums2[j]){
                 i++;
+            }
+            else{
                 j++;
             }
         }
-        return intersection;
+    //     return intersect;
+
+        // //time ;O(n) and space:O(n)
+        // unordered_set<int> set1(nums1.begin(),nums1.end());
+        // unordered_set<int> set2(nums2.begin(),nums2.end());
+        // vector<int> result;
+        // for(const auto& i:set1){
+        //     if(set2.find(i)!=set2.end()){
+        //         result.push_back(i);
+        //     }
+        // }
+        // return result;
     }
 };
 int main(){
     Solution s1;
-    vector<int> nums1={1, 1, 2, 2, 2, 4};
-    vector<int> nums2={2, 2, 4, 4};
-    int n=nums1.size();
-    int m=nums2.size();
-    vector<int> result=s1.intersectionOfSorted(nums1,nums2,n,m);
-    for(auto &i:result){
+    vector<int> nums1={4,9,5};
+    vector<int> nums2={9,4,9,8,4};
+    vector<int> result=s1.Intersection(nums1,nums2);
+    for(int i:result){
         cout<<i<<" ";
     }
+    return 0;
 }
