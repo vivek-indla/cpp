@@ -4,7 +4,7 @@ class Solution{
     public:
     vector<int> Intersection(vector<int>& nums1,vector<int>& nums2){
         // time : O(n log n) for sorting arrays space:O(!)
-        if arrays are not sorted
+        // if arrays are not sorted
         sort(nums1.begin(),nums1.end());
         sort(nums2.begin(),nums2.end());
         vector<int> intersect;
